@@ -47,7 +47,7 @@ class AudioActivity : AppCompatActivity() {
     }
 
     private fun buildDataSourceFactory(): DataSource.Factory {
-        val httpDataSourceFactory = DefaultHttpDataSourceFactory(userAgent)
+        val httpDataSourceFactory: DataSource.Factory = DefaultHttpDataSourceFactory(userAgent)
         val upstreamFactory = DefaultDataSourceFactory(this, null, httpDataSourceFactory)
         val downloadCache = SimpleCache(externalCacheDir, NoOpCacheEvictor())
         return buildCacheReadOnlyDataSource(upstreamFactory, downloadCache)
